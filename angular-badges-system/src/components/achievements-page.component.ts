@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <div classname="grid grid-cols-4">
+    <div class="grid grid-cols-4">
       <div *ngFor="let achievement of achievements">
         <h3>{{ achievement.name }}</h3>
         <img
