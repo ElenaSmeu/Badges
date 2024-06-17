@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AchivementsPageComponent } from '../components/achivements-page.component';
+import { AchivementsPageComponent } from '../components/achievements-page.component';
 
 describe('AchivementsPageComponent', () => {
   let component: AchivementsPageComponent;

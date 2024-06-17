@@ -1,0 +1,108 @@
+
+[
+    {
+        "name": "First Donation",
+        "image": "first_donation.png",
+        "description": "Awarded for receiving the first donation face-to-face.",
+        "level": "Easy",
+        "timesUnlocked": 1
+    },
+    {
+        "name": "Friendly Fundraiser",
+        "image": "friendly_fundraiser.png",
+        "description": "Successfully engage 10 people in conversation.",
+        "level": "Easy",
+        "timesUnlocked": 3
+    },
+    {
+        "name": "Community Supporter",
+        "image": "community_supporter.png",
+        "description": "Receive donations from 5 local businesses.",
+        "level": "Medium",
+        "timesUnlocked": 2
+    },
+    {
+        "name": "Neighborhood Star",
+        "image": "neighborhood_star.png",
+        "description": "Get recognized by a local news outlet for your fundraising efforts.",
+        "level": "Medium",
+        "timesUnlocked": 0
+    },
+    {
+        "name": "Event Organizer",
+        "image": "event_organizer.png",
+        "description": "Organize a successful face-to-face fundraising event.",
+        "level": "Hard",
+        "timesUnlocked": 1
+    },
+    {
+        "name": "Top Fundraiser",
+        "image": "top_fundraiser.png",
+        "description": "Raise over $10,000 in face-to-face donations.",
+        "level": "Hard",
+        "timesUnlocked": 0
+    },
+    {
+        "name": "Community Builder",
+        "image": "community_builder.png",
+        "description": "Recruit 20 new supporters through face-to-face interactions.",
+        "level": "Medium",
+        "timesUnlocked": 4
+    },
+    {
+        "name": "Quick Starter",
+        "image": "quick_starter.png",
+        "description": "Get 5 face-to-face donations within the first week.",
+        "level": "Easy",
+        "timesUnlocked": 5
+    },
+    {
+        "name": "Global Outreach",
+        "image": "global_outreach.png",
+        "description": "Receive face-to-face donations from 5 different nationalities.",
+        "level": "Medium",
+        "timesUnlocked": 1
+    },
+    {
+        "name": "Monthly Goal Achiever",
+        "image": "monthly_goal_achiever.png",
+        "description": "Achieve monthly face-to-face fundraising goal 3 times in a row.",
+        "level": "Hard",
+        "timesUnlocked": 0
+    },
+    {
+        "name": "Inspiring Leader",
+        "image": "inspiring_leader.png",
+        "description": "Lead a team to raise $5000 in a month through face-to-face fundraising.",
+        "level": "Hard",
+        "timesUnlocked": 1
+    },
+    {
+        "name": "Public Speaker",
+        "image": "public_speaker.png",
+        "description": "Give 5 presentations about the fundraising cause.",
+        "level": "Medium",
+        "timesUnlocked": 2
+    },
+    {
+        "name": "Handshake Hero",
+        "image": "handshake_hero.png",
+        "description": "Receive 50 face-to-face donations.",
+        "level": "Medium",
+        "timesUnlocked": 0
+    },
+    {
+        "name": "Face-to-Face Pro",
+        "image": "face_to_face_pro.png",
+        "description": "Reach 100 face-to-face interactions in a single campaign.",
+        "level": "Hard",
+        "timesUnlocked": 0
+    },
+    {
+        "name": "Smile Ambassador",
+        "image": "smile_ambassador.png",
+        "description": "Make 20 people smile during face-to-face fundraising.",
+        "level": "Easy",
+        "timesUnlocked": 1
+    }
+]
