@@ -10,16 +10,20 @@ import { CommonModule } from '@angular/common';
   selector: 'app-achievements-page',
   standalone: true,
   imports: [CommonModule],
-  template: `<div *ngFor="let achievement of achievements">
-    <h3>{{ achievement.name }}</h3>
-    <img
-      [src]="'assets/images/' + achievement.image"
-      alt="{{ achievement.name }}"
-    />
-    <p>{{ achievement.description }}</p>
-    <p>Level: {{ achievement.level }}</p>
-    <p>Times Unlocked: {{ achievement.timesUnlocked }}</p>
-  </div>`,
+  template: `
+    <div classname="grid grid-cols-4">
+      <div *ngFor="let achievement of achievements">
+        <h3>{{ achievement.name }}</h3>
+        <img
+          [src]="'assets/images/' + achievement.image"
+          alt="{{ achievement.name }}"
+        />
+        <p>based on this one, can you make badge for {{ achievement.image }}</p>
+        <p>Level: {{ achievement.level }}</p>
+        <p>Times Unlocked: {{ achievement.timesUnlocked }}</p>
+      </div>
+    </div>
+  `,
 })
 export class AchivementsPageComponent implements OnInit, OnDestroy {
   achievements: Achievement[] = [];

@@ -97,12 +97,5 @@
         "description": "Reach 100 face-to-face interactions in a single campaign.",
         "level": "Hard",
         "timesUnlocked": 0
-    },
-    {
-        "name": "Smile Ambassador",
-        "image": "smile_ambassador.png",
-        "description": "Make 20 people smile during face-to-face fundraising.",
-        "level": "Easy",
-        "timesUnlocked": 1
     }
 ]
