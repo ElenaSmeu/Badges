@@ -5,8 +5,10 @@ import { RouterOutlet } from '@angular/router';
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  template: `<main class="main">
+      <div>WELCOME</div>
+    </main>
+    <router-outlet /> `,
 })
 export class AppComponent {
   title = 'angular-badges-system';
