@@ -1,13 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
-export interface Achievement {
-  name: string;
-  image: string;
-  description: string;
-  level: string;
-  timesUnlocked: number;
-}
+import { Achievement } from '../utils/Achievement';
 
 @Injectable({
   providedIn: 'root',
