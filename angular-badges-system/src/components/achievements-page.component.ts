@@ -44,7 +44,7 @@ import { FilterPipe } from '../utils/filter.pipe';
         [isAnimated]="true"
       ></app-achievement>
     </div>
-    <div class="flex flex-row items-center text-xs px-4 pt-2 text-gray-400">
+    <div class="flex flex-row  items-center text-xs px-4 pt-2 text-gray-400">
       <fa-icon [icon]="infoIcon"></fa-icon>
       <p class="ml-2">
         Double-click or long-press on an achievement to unlock it.
