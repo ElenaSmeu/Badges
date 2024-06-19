@@ -20,7 +20,6 @@
     "@angular/router": "^18.0.0",
     "@fortawesome/angular-fontawesome": "^0.15.0",
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
-    "natural-compare": "^1.4.0",
     "rxjs": "~7.8.0",
     "tailwind": "^4.0.0",
     "tslib": "^2.3.0",
