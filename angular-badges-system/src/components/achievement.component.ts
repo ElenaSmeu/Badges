@@ -1,15 +1,19 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Achievement } from '../utils/Achievement';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-achievement',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FontAwesomeModule],
   template: `
     <div
       *ngIf="achievement; else noAchivement"
-      class="flex flex-col items-center p-2 border border-gray-200 rounded-md"
+      class="flex flex-col items-center p-2 border border-gray-200 rounded-md cursor-pointer"
+      (dblclick)="onDoubleClick()"
+      (click)="onSingleClick()"
     >
       <p
         class="text-lg"
@@ -21,12 +25,30 @@ import { Achievement } from '../utils/Achievement';
       >
         {{ achievement.level | uppercase }}
       </p>
-      <p>{{ achievement.timesUnlocked }}</p>
+      <div *ngFor="let item; of"></div>
+
       <img
-        [ngClass]="{ 'blur-sm grayscale': achievement.timesUnlocked == 0 }"
+        [ngClass]="{
+          'blur-sm grayscale': achievement.timesUnlocked == 0,
+          'animate-bounce': isAnimated
+        }"
         [src]="'assets/images/' + achievement.image"
         alt="{{ achievement.name }}"
       />
+      <div class="relative self-start">
+        <div
+          *ngFor="
+            let item of generateTimesunlockedArray(achievement.timesUnlocked);
+            index as i
+          "
+          [ngStyle]="{ left: i * 20 + 'px', opacity: getStarOpacity(i) }"
+          class="absolute bottom-0"
+        >
+          <div class="relative text-4xl text-yellow-500">
+            <fa-icon [icon]="faStar"></fa-icon>
+          </div>
+        </div>
+      </div>
       <p class="text-center text-xs text-gray-700">
         {{ achievement.description }}
       </p>
@@ -34,8 +56,34 @@ import { Achievement } from '../utils/Achievement';
     <ng-template #noAchivement>
       <div class="text-lg text-gray-200">Not found.</div>
     </ng-template>
+    <ng-template #timesUnlocked> </ng-template>
   `,
 })
 export class AchievementComponent {
   @Input() achievement: Achievement | null = null;
+  @Input() isAnimated: boolean = false;
+  faStar = faStar;
+  unlockAchievement = output<Achievement>();
+
+  private singleClickTimeout: any; /// this should be it: NodeJS.Timeout | undefined;
+
+  generateTimesunlockedArray(num: number) {
+    return Array.from({ length: num }).map((_, i) => i + 1);
+  }
+  getStarOpacity(index: number): number {
+    const total = this.achievement?.timesUnlocked || 1;
+    return 1 - index / total;
+  }
+  onDoubleClick() {
+    clearTimeout(this.singleClickTimeout);
+    this.achievement ? this.unlockAchievement.emit(this.achievement) : {};
+  }
+  onSingleClick() {
+    clearTimeout(this.singleClickTimeout);
+    this.singleClickTimeout = setTimeout(() => {
+      if (this.achievement) {
+        this.unlockAchievement.emit(this.achievement);
+      }
+    }, 300);
+  }
 }

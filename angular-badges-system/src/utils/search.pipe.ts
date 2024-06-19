@@ -7,8 +7,6 @@ import { Achievement } from './Achievement';
 })
 export class SearchPipe implements PipeTransform {
   transform(achievements: Achievement[], searchTerm: string): Achievement[] {
-    const postProcessSearchTerm = searchTerm.toLowerCase().trim();
-
     const processedString = (s: string) => {
       return s.toLowerCase().trim();
     };

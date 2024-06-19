@@ -21,8 +21,6 @@ export class OrderAchievementsPipe implements PipeTransform {
           }),
       }))
       .sort((a, b) => {
-        const levela = levelToInt(a.level);
-        const levelb = levelToInt(b.level);
         return levelToInt(a.level) - levelToInt(b.level);
       })
       .flatMap((group) => group.items);

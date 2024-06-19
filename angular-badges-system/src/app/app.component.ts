@@ -1,9 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { RouterOutlet } from '@angular/router';
 import { AchivementsPageComponent } from '../components/achievements-page.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',

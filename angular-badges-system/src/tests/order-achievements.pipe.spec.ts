@@ -1,4 +1,4 @@
-import { OrderAchievementsPipe } from './order-achievements.pipe';
+import { OrderAchievementsPipe } from '../utils/order-achievements.pipe';
 
 describe('OrderAchievementsPipe', () => {
   it('create an instance', () => {

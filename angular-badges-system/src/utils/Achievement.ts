@@ -6,7 +6,7 @@ export interface Achievement {
   description: string;
   level: Level;
   timesUnlocked: number;
-  unlockedTimestamp: string;
+  lastUnlocked: string;
 }
 
 export const allLevels: Level[] = ['easy', 'medium', 'hard'];
