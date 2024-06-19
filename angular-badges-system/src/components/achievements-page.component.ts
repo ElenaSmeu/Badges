@@ -8,7 +8,11 @@ import { OrderAchievementsPipe } from '../utils/order-achievements.pipe';
 import { SearchPipe } from '../utils/search.pipe';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import {
+  faInfoCircle,
+  faStarHalfStroke,
+} from '@fortawesome/free-solid-svg-icons';
+import { FilterPipe } from '../utils/filter.pipe';
 
 @Component({
   selector: 'app-achievements-page',
@@ -16,12 +20,21 @@ import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
   template: `
     <div class="flex flex-row justify-between mt-4 items-center">
       <div class="px-4 text-xl">Welcome!</div>
-      <div class="flex flex-1 flex-col mr-4">
+      <div class="flex flex-1 flex-row mr-4">
         <input
-          class="border border-gray-100 hover:border-gray-400 rounded px-4 py-2"
+          class="border border-gray-200 hover:border-gray-400 rounded px-4 py-2 flex-1"
           [(ngModel)]="searchTerm"
           placeholder="Search"
         />
+        <button
+          class="ml-6 text-lg border border-gray-400 rounded hover:bg-gray-100 flex flex-row items-center"
+          [ngClass]="{
+            'text-yellow-500 border-yellow-400': filterUnlocked
+          }"
+          (click)="filterUnlocked = !filterUnlocked"
+        >
+          <fa-icon [icon]="starIcon" class="px-4 py-2"></fa-icon>
+        </button>
       </div>
     </div>
 
@@ -44,6 +57,7 @@ import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
           let achievement of achievements
             | orderAchievements
             | searchAchievements : searchTerm
+            | filterUnlocked : filterUnlocked
         "
       >
         <app-achievement
@@ -61,6 +75,7 @@ import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
     SearchPipe,
     FormsModule,
     FontAwesomeModule,
+    FilterPipe,
   ],
 })
 export class AchivementsPageComponent implements OnInit, OnDestroy {
@@ -68,7 +83,9 @@ export class AchivementsPageComponent implements OnInit, OnDestroy {
   subscriptions: Subscription[] = [];
   searchTerm: string = '';
   lastUnlockedAchievement: Achievement | null = null;
+  filterUnlocked: boolean = false;
   infoIcon = faInfoCircle;
+  starIcon = faStarHalfStroke;
 
   constructor(private achievementService: AchivementsService) {}
 
