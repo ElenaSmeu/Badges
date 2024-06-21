@@ -23,7 +23,6 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
       >
         {{ achievement.level | uppercase }}
       </p>
-      <div *ngFor="let item; of"></div>
 
       <img
         [ngClass]="{
@@ -34,18 +33,20 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
         alt="{{ achievement.name }}"
       />
       <div class="relative self-start">
+        @for (item of generateTimesunlockedArray(achievement.timesUnlocked);
+        track $index) {
         <div
-          *ngFor="
-            let item of generateTimesunlockedArray(achievement.timesUnlocked);
-            index as i
-          "
-          [ngStyle]="{ left: i * 20 + 'px', opacity: getStarOpacity(i) }"
+          [ngStyle]="{
+            left: $index * 20 + 'px',
+            opacity: getStarOpacity($index)
+          }"
           class="absolute bottom-0"
         >
           <div class="relative text-4xl text-yellow-500">
             <fa-icon [icon]="faStar"></fa-icon>
           </div>
         </div>
+        }
       </div>
       <p class="text-center text-xs text-gray-700">
         {{ achievement.description }}

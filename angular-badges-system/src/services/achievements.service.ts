@@ -16,8 +16,8 @@ import { Achievement } from '../utils/Achievement';
 })
 export class AchivementsService implements OnDestroy {
   private assetsUrl = '../assets/achivementsCatalog.json';
-  private achievementSubject = new BehaviorSubject<Achievement[]>([]);
-  achievements$ = this.achievementSubject.asObservable();
+  private achievementsSubject = new BehaviorSubject<Achievement[]>([]);
+  achievements$ = this.achievementsSubject.asObservable();
 
   private destroy$ = new Subject<void>();
 
@@ -30,7 +30,7 @@ export class AchivementsService implements OnDestroy {
       .get<Achievement[]>(this.assetsUrl)
       .pipe(
         catchError(this.handleError<Achievement[]>('loadInitialData', [])),
-        tap((data) => this.achievementSubject.next(data)),
+        tap((data) => this.achievementsSubject.next(data)),
         takeUntil(this.destroy$)
       )
       .subscribe();
@@ -41,7 +41,7 @@ export class AchivementsService implements OnDestroy {
   }
 
   updateAchievement(updatedAchievement: Achievement) {
-    const currentAchievements = this.achievementSubject.value;
+    const currentAchievements = this.achievementsSubject.value;
     const index = currentAchievements.findIndex(
       (achv) => achv.name == updatedAchievement.name
     );
@@ -49,7 +49,7 @@ export class AchivementsService implements OnDestroy {
     if (index !== -1) {
       const updatedAchievements = [...currentAchievements];
       updatedAchievements[index] = updatedAchievement;
-      this.achievementSubject.next(updatedAchievements);
+      this.achievementsSubject.next(updatedAchievements);
     }
   }
 
