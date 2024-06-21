@@ -17,11 +17,9 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
     >
       <p
         class="text-lg"
-        [ngClass]="{
-          'text-green-600': achievement.level == 'easy',
-          'text-blue-600': achievement.level == 'medium',
-          'text-red-700': achievement.level == 'hard'
-        }"
+        [class.text-green-600]="achievement.level == 'easy'"
+        [class.text-blue-600]="achievement.level == 'medium'"
+        [class.text-red-600]="achievement.level == 'hard'"
       >
         {{ achievement.level | uppercase }}
       </p>
